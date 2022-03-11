@@ -25,7 +25,7 @@ func main() { //nolint
 	peerConnection, err := webrtc.NewPeerConnection(webrtc.Configuration{
 		ICEServers: []webrtc.ICEServer{
 			{
-				URLs: []string{"stun:stun.l.google.com:19302"},
+				URLs: []string{"stun:47.113.224.5:3478"},
 			},
 		},
 	})
