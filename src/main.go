@@ -25,6 +25,7 @@ func main() { //nolint
 	peerConnection, err := webrtc.NewPeerConnection(webrtc.Configuration{
 		ICEServers: []webrtc.ICEServer{
 			{
+				// URLs: []string{"stun:stun.l.google.com:19302"},
 				URLs: []string{"stun:47.113.224.5:3478"},
 			},
 		},
@@ -139,7 +140,7 @@ func main() { //nolint
 	// Wait for the offer to be pasted
 	offer := webrtc.SessionDescription{}
 	Decode(MustReadStdin(), &offer)
-
+	fmt.Printf("read SDP:%+v",offer)
 	// Set the remote SessionDescription
 	if err = peerConnection.SetRemoteDescription(offer); err != nil {
 		panic(err)
@@ -166,6 +167,7 @@ func main() { //nolint
 
 	// Output the answer in base64 so we can paste it in browser
 	sdp := Encode(*peerConnection.LocalDescription())
+	fmt.Printf("lcoal SDP:%+v",*peerConnection.LocalDescription())
 	fmt.Println(sdp)
 	clipboard.WriteAll(sdp)
 

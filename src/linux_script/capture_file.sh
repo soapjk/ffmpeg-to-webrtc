@@ -1,0 +1,1 @@
+cat SDP.txt | go run . -rtbufsize 100M -i "/home/czx/Videos/RecordLives/22625025-向晚大魔王/录制-22625025-20220309-195141-359-【3D】羊羊得意.flv" -framerate 15 -pix_fmt yuvj420p -c:v libx264 -bsf:v h264_mp4toannexb -b:v 1M -max_delay 0 -bf 0 -f h264 -
