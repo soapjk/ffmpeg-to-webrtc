@@ -1,0 +1,3 @@
+@REM REM https://github.com/rdp/screen-capture-recorder-to-video-windows-free is required
+go run . -rtbufsize 100M -i "D:\ranran.flv" -framerate 15 -pix_fmt yuvj420p -c:v libx264 -bsf:v h264_mp4toannexb -b:v 1M -max_delay 0 -bf 0 -f h264 - < SDP.txt
+@REM ffmpeg -rtbufsize 100M -f flv -i "D:\ranran.flv" -framerate 15  -pix_fmt yuvj420p -c:v libx264 -bsf:v h264_mp4toannexb -b:v 1M -max_delay 0 -bf 0 -f mp4 out.mp4

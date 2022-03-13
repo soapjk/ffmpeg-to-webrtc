@@ -64,6 +64,7 @@ func main() { //nolint
 	}()
 
 	go func() {
+		fmt.Printf("args:%+v\n",os.Args)
 		dataPipe, err := RunCommand("ffmpeg", os.Args[1:]...)
 
 		if err != nil {
